@@ -67,8 +67,7 @@
             height: 100vh;
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
+          
         }
         .parallax__item__num {
             font-size: 5vw;
@@ -86,12 +85,22 @@
             overflow: hidden;
             border-radius: 10px;
         }
+
+        .parallax__item__imgWrap1 {
+            width: 40%;
+            padding-bottom: 18%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
         .parallax__item__img {
             position: absolute;
-            left: -5%; 
+            left: -10%; 
             top: -5%;
-            width: 110%;
-            height: 110%;
+            width: 100%;
+            height: 80%;
+            margin-top: 20%;
+            margin-left: 20%;
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
@@ -102,12 +111,32 @@
             filter: saturate(100%);
             transform: scale(1.025);
         }
+
         #section1 .parallax__item__img {
             background-image: url(assets/img/images01@2.jpg);
         }
-        #section2 .parallax__item__img {
-            background-image: url(assets/img/images02@2.jpg);
+     
+        #section1 .parallax__item__desc1 {
+            margin-left: 20%;
+            margin-top: 20%;
+            font-size: 4rem;
         }
+
+        #section2 .parallax__item__desc2 {
+            margin-left: 10%;
+            margin-top: 15%;
+            font-size: 2.5rem;
+        }
+
+        #section2 .parallax__item__desc2-1{
+            margin-left: 15%;
+            margin-top: 15%;
+            font-size: 1.5rem;
+        }
+
+        #section2 .parallax__item__img {
+            background-image: url(assets/img/images02.jpg);
+         }
         #section3 .parallax__item__img {
             background-image: url(assets/img/images03@2.jpg);
         }
@@ -174,6 +203,7 @@
     <main id="parallax__cont">
         <section id="section1" class="parallax__item">
             <span class="parallax__item__num">01</span>
+                <p class="parallax__item__desc1">머니스테이션 인턴과정</p>
             <figure class="parallax__item__imgWrap">
                 <div class="parallax__item__img"></div>
             </figure>
@@ -182,9 +212,13 @@
 
         <section id="section2" class="parallax__item">
             <span class="parallax__item__num">02</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap1">
                 <div class="parallax__item__img"></div>
             </figure>
+            <p class="parallax__item__desc2">현장실습 & 인턴 진행기간 
+                <span class="parallax__item__desc2-1"> <br><br> 2024.01.01~2024.2.25 (대학연계 현장실습) <br> 2024.03.04 ~ 2024.10.31 (파트타임 인턴 (연장))</span>
+            </p>
+           
         </section>
         <!-- //section2 -->
 
@@ -253,6 +287,7 @@
     <script>
             const horizontal = document.querySelector("#horizontal");
             const sections = gsap.utils.toArray("#horizontal > section");
+            const box2 = document.querySelector("#section2 .parallax__item__img");
 
             let scrollTween = gsap.to(sections, {
                 xPercent: -100 * (sections.length - 1),
@@ -267,6 +302,7 @@
                     invalidateOnRefresh: true,
                 }
             });
+
 
 
             gsap.to(".img4", {
